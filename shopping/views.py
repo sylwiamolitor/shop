@@ -51,7 +51,13 @@ def delete(request, id):
 
 @login_required(login_url='/login/')
 def edit(request, id):
-   product = Product.objects.get(id=id)
-   #TODO
-   return redirect('getAllProducts')
+    instance = Product.objects.get(id=id)
+    form = ProductForm(request.POST or None, instance=instance)
+    if form.is_valid():
+          form = form.save(commit=False)
+          form.last_edit_time = timezone.now()
+          form.save()
+          return redirect('index')
+    form.fields['name'].initial = instance
+    return render(request, 'shopping/edit.html', {'form': form})
 
