@@ -41,3 +41,17 @@ def get(request, id):
     product = get_object_or_404(Product, id=id)
     context = {'product': product}
     return render(request, 'shopping/get.html', context)
+
+@login_required(login_url='/login/')
+def delete(request, id):
+   product = Product.objects.get(id=id)
+   product.delete()
+   return redirect('getAllProducts')
+
+
+@login_required(login_url='/login/')
+def edit(request, id):
+   product = Product.objects.get(id=id)
+   #TODO
+   return redirect('getAllProducts')
+
