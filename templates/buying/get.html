@@ -1,0 +1,19 @@
+Name: {{ order.name }}
+<br>
+Description: {{ order.description }}
+<br>
+Stock number: {{ order.stock_number }}
+<br>
+Price: {{ order.price }}
+<br>
+User: {{ order.user }}
+<br>
+Create time: {{ order.create_time }}
+<br>
+Last edit time: {{ order.last_edit_time }}
+<br>
+<br>
+<a href="/buying/edit/{{order.id}}/">Edit orders</a>
+<br>
+<a href="/buying/delete/{{order.id}}/">Delete orders</a>
+

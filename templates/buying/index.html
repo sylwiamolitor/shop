@@ -14,9 +14,21 @@
 <a href="/login/">Login</a>
 {% endif %}
 <br>
-<a href="/shopping/">Start adding shopping items</a>
 <br>
-<a href="/buying/">Start buying</a>
+<a href="/buying/add">Add order</a>
+<br>
+<br>
 {% block content %}{% endblock %}
+{% if order %}
+	<ul>
+	{% for n in order %}
+    <li><a href="/buying/get/{{ n.id }}/">{{ n.name }}</a></li>
+	{% endfor %}
+	</ul>
+{% else %}
+	<p>No orders are currently chosen. Click "Show all orders" to display all orders.</p>
+{% endif %}
+<br>
+<a href="/buying/get">Show all orders</a>
 </body>
 </html>
