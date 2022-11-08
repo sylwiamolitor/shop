@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>
-{% block title %}Shop{% endblock %}
-</title>
+    <title>
+        {% block title %}Shop{% endblock %}
+    </title>
 </head>
 <body>
 <a href="/">Home</a>
@@ -20,13 +20,13 @@
 <br>
 {% block content %}{% endblock %}
 {% if order %}
-	<ul>
-	{% for n in order %}
+<ul>
+    {% for n in order %}
     <li><a href="/buying/get/{{ n.id }}/">{{ n.name }}</a></li>
-	{% endfor %}
-	</ul>
+    {% endfor %}
+</ul>
 {% else %}
-	<p>No orders are currently chosen. Click "Show all orders" to display all orders.</p>
+<p>No orders are currently chosen. Click "Show all orders" to display all orders.</p>
 {% endif %}
 <br>
 <a href="/buying/get">Show all orders</a>

@@ -1,11 +1,10 @@
-from django.shortcuts import render
-
-from django.shortcuts import render, redirect, get_object_or_404
-
-from .models import Product
-from .forms import ProductForm
-from django.utils import timezone
 from django.contrib.auth.decorators import login_required
+from django.shortcuts import render, redirect, get_object_or_404
+from django.utils import timezone
+
+from .forms import ProductForm
+from .models import Product
+
 
 # Create your views here.
 def index(request):
@@ -18,7 +17,7 @@ def addProduct(request):
         product = ProductForm(request.POST)
         if product.is_valid():
             product = product.save(commit=False)
-            product.author = request.user
+            product.user = request.user
             product.create_time = timezone.now()
             product.last_edit_time = timezone.now()
             product.save()
@@ -31,6 +30,7 @@ def addProduct(request):
         context = {'form': news}
         return render(request, 'shopping/add.html', context)
 
+
 def getAllProducts(request):
     product = Product.objects.order_by('-create_time')
     context = {'product': product}
@@ -42,11 +42,12 @@ def get(request, id):
     context = {'product': product}
     return render(request, 'shopping/get.html', context)
 
+
 @login_required(login_url='/login/')
 def delete(request, id):
-   product = Product.objects.get(id=id)
-   product.delete()
-   return redirect('getAllProducts')
+    product = Product.objects.get(id=id)
+    product.delete()
+    return redirect('getAllProducts')
 
 
 @login_required(login_url='/login/')
@@ -54,10 +55,9 @@ def edit(request, id):
     instance = Product.objects.get(id=id)
     form = ProductForm(request.POST or None, instance=instance)
     if form.is_valid():
-          form = form.save(commit=False)
-          form.last_edit_time = timezone.now()
-          form.save()
-          return redirect('index')
+        form = form.save(commit=False)
+        form.last_edit_time = timezone.now()
+        form.save()
+        return redirect('index')
     form.fields['name'].initial = instance
     return render(request, 'shopping/edit.html', {'form': form})
-

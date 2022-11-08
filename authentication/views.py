@@ -1,7 +1,7 @@
-from django.shortcuts import render, redirect
-from .forms import LoginForm
 from django.contrib.auth import authenticate, login, logout
+from django.shortcuts import render, redirect
 
+from .forms import LoginForm
 
 
 def log_in(request):
@@ -18,7 +18,7 @@ def log_in(request):
                 request,
                 username=form.cleaned_data.get('username'),
                 password=form.cleaned_data.get('password')
-               # account=form.cleaned_data.get('account')
+                # account=form.cleaned_data.get('account')
             )
             if user is not None:
                 login(request, user)
