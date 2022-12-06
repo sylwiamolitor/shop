@@ -41,3 +41,8 @@ def get(request, id):
     product = get_object_or_404(Product, id=id)
     context = {'product': product}
     return render(request, 'shopping/get.html', context)
+
+def buy(request, id):
+    product = get_object_or_404(Product, id=id)
+    context = {'product': product}
+    return render(request, 'shopping/buy.html', context)

@@ -9,7 +9,9 @@ def log_in(request):
 
     if request.method == 'POST':
         form = LoginForm(request.POST)
+        print("form = LoginForm(request.POST)")
         if form.is_valid():
+            print("user = authenticate(")
 
             user = authenticate(
                 request,
@@ -18,6 +20,7 @@ def log_in(request):
             )
             if user is not None:
                 login(request, user)
+                print("LOGGED IN")
                 return redirect('index')
             else:
                 context = {'form': form}
