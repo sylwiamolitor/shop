@@ -24,6 +24,7 @@ class Order(models.Model):
     user = models.ForeignKey(User, null=True, on_delete=models.SET_NULL)
 
     product = models.ForeignKey(Product, null=True, on_delete=models.SET_NULL)
+    quantity = models.IntegerField()
     price = models.IntegerField()
 
     create_time = models.DateTimeField('create time')
