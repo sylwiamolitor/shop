@@ -1,15 +1,34 @@
-Product:
-Name: {{ product.name }}
-<br>
-Description: {{ product.description }}
-<br>
-Stock number: {{ product.stock_number }}
-<br>
-Price: {{ product.price }}
-<br>
-Create time: {{ product.create_time }}
-<br>
-Last edit time: {{ product.last_edit_time }}
+Product name: {{ order.product.name }}
 <br>
 
-Transaction successful !
+Description: {{ order.product.description }}
+<br>
+
+Price: {{ order.price }}
+<br>
+
+Status: {{ order.state.value }}
+<br>
+
+Create time: {{ order.create_time }}
+<br>
+
+Last update time: {{ order.last_update_time }}
+<br>
+
+{% if order.accept_time %}
+Accepted on: {{ order.accept_time }}
+<br>
+{% endif %}
+
+{% if order.payment_time %}
+Payment received on: {{ order.payment_time }}
+<br>
+{% endif %}
+
+{% if order.shipping_time %}
+Shipped out on: {{ order.shipping_time }}
+<br>
+{% endif %}
+
+Transaction successful!

@@ -1,15 +1,27 @@
-<form action="/shopping/buy/{{product.id}}/" method="get">
-Name: {{ product.name }}
-<br>
-Description: {{ product.description }}
-<br>
-Stock number: {{ product.stock_number }}
-<br>
-Price: {{ product.price }}
-<br>
-Create time: {{ product.create_time }}
-<br>
-Last edit time: {{ product.last_edit_time }}
-<br>
-<input type="submit" value="BUY"/>
+{% if error %}
+    <p style="color: red;">{{ error }}</p>
+{% endif %}
+
+<form action="/shopping/buy/{{product.id}}/" method="post">
+    {% csrf_token %}
+
+    Name: {{ product.name }}
+    <br>
+
+    Description: {{ product.description }}
+    <br>
+
+    Stock number: {{ product.stock_number }}
+    <br>
+
+    Price: {{ product.price }}
+    <br>
+
+    Create time: {{ product.create_time }}
+    <br>
+
+    Last edit time: {{ product.last_edit_time }}
+    <br>
+
+    <input type="submit" value="BUY"/>
 </form>

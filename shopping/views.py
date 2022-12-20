@@ -1,11 +1,12 @@
-from django.shortcuts import render
-
-from django.shortcuts import render, redirect, get_object_or_404
-
-from .models import Product
-from .forms import ProductForm
-from django.utils import timezone
+from django.contrib.auth import get_user
 from django.contrib.auth.decorators import login_required
+from django.db import transaction
+from django.shortcuts import render, redirect, get_object_or_404
+from django.utils import timezone
+
+from .forms import ProductForm
+from .models import Product, Order
+
 
 # Create your views here.
 def index(request):
@@ -42,7 +43,28 @@ def get(request, id):
     context = {'product': product}
     return render(request, 'shopping/get.html', context)
 
+@transaction.atomic
 def buy(request, id):
     product = get_object_or_404(Product, id=id)
-    context = {'product': product}
-    return render(request, 'shopping/buy.html', context)
+    if request.method == 'POST':
+        if product.stock_number < 1:
+            context = {'product': product, 'error': 'The selected product is not in stock!'}
+            return render(request, 'shopping/get.html', context)
+
+        product.stock_number -= 1
+        order = Order(
+            user=get_user(request),
+            product=product,
+            price=product.price,
+            create_time=timezone.now(),
+            last_update_time=timezone.now()
+        )
+
+        product.save()
+        order.save()
+
+        context = {'order': order}
+        return render(request, 'shopping/buy.html', context)
+    else:
+        context = {'product': product}
+        return render(request, 'shopping/get.html', context)
