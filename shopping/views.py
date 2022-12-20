@@ -44,17 +44,20 @@ def get(request, id):
     return render(request, 'shopping/get.html', context)
 
 @transaction.atomic
+@login_required(login_url="/login")
 def buy(request, id):
     product = get_object_or_404(Product, id=id)
     if request.method == 'POST':
-        if product.stock_number < 1:
-            context = {'product': product, 'error': 'The selected product is not in stock!'}
+        quantity = int(request.POST['quantity'])
+        if product.stock_number < quantity:
+            context = {'product': product, 'error': 'The selected product quantity is not in stock!'}
             return render(request, 'shopping/get.html', context)
 
-        product.stock_number -= 1
+        product.stock_number -= quantity
         order = Order(
             user=get_user(request),
             product=product,
+            quantity=quantity,
             price=product.price,
             create_time=timezone.now(),
             last_update_time=timezone.now()
