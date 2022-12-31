@@ -1,5 +1,6 @@
+from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib.auth import get_user
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, permission_required
 from django.db import transaction
 from django.shortcuts import render, redirect, get_object_or_404
 from django.utils import timezone
@@ -13,7 +14,8 @@ def index(request):
     return render(request, 'shopping/index.html')
 
 
-@login_required(login_url='/login/')
+@login_required(login_url='/login')
+@staff_member_required(login_url='/login')
 def addProduct(request):
     if request.method == 'POST':
         product = ProductForm(request.POST)
@@ -44,7 +46,7 @@ def get(request, id):
     return render(request, 'shopping/get.html', context)
 
 @transaction.atomic
-@login_required(login_url="/login")
+@permission_required('shopping.add_order', login_url="/login")
 def buy(request, id):
     product = get_object_or_404(Product, id=id)
     if request.method == 'POST':
