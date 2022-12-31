@@ -3,7 +3,7 @@ from django.contrib.auth.models import User, Permission
 from django.db import transaction
 from django.shortcuts import render, redirect
 from .forms import LoginForm, SignupForm
-from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth import authenticate, login, logout, get_user
 
 from .models import Customer
 
@@ -80,3 +80,11 @@ def sign_up(request):
         context = {'form': SignupForm()}
         return render(request, 'authentication/signup.html', context)
 
+
+@login_required(login_url='/login')
+def user_details(request):
+    user = get_user(request)
+    if not user.customer:
+        return redirect('/')
+    context = {'customer': user.customer}
+    return render(request, 'authentication/userdetails.html', context)

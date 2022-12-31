@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container my-4">
+    <dl class="row">
+        <dt>Username:</dt><dd>{{ customer.user.username }}</dd>
+        <dt>First name:</dt><dd>{{ customer.user.first_name }}</dd>
+        <dt>Last name:</dt><dd>{{ customer.user.last_name }}</dd>
+        <dt>Email:</dt><dd>{{ customer.user.email }}</dd>
+        <dt>Address 1:</dt><dd>{{ customer.address1 }}</dd>
+        <dt>Address 2:</dt><dd>{{ customer.address2 }}</dd>
+        <dt>Town/city:</dt><dd>{{ customer.town_city }}</dd>
+        <dt>Postcode:</dt><dd>{{ customer.postcode }}</dd>
+        <dt>Country:</dt><dd>{{ customer.country }}</dd>
+    </dl>
+</div>
+
+{% endblock %}
