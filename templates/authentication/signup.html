@@ -3,7 +3,7 @@
 {% block content %}
 
 <div class="container my-4 col-sm-6 col-sm-offset-3 login">
-    <form action="/login/" method="post">
+    <form action="/signup/" method="post">
         {% csrf_token %}
         {% for field in form %}
             <div class="mb-3">
@@ -11,7 +11,7 @@
                 <p>{{ field }}</p>
             </div>
         {% endfor %}
-        <button type="submit" class="btn btn-primary">Login</button>
+        <button type="submit" class="btn btn-primary">Sign up</button>
     </form>
 </div>
 
