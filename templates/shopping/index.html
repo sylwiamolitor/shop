@@ -18,7 +18,6 @@
 <a href="/shopping/add">Add product</a>
 <br>
 <br>
-{% block content %}{% endblock %}
 {% if product %}
 	<ul>
 	{% for n in product %}
@@ -26,9 +25,8 @@
 	{% endfor %}
 	</ul>
 {% else %}
-	<p>No products are currently chosen. Click "Show all products" to display all products.</p>
+	<p>No products are currently chosen.</p>
 {% endif %}
 <br>
-<a href="/shopping/get">Show all products</a>
 </body>
 </html>
