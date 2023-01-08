@@ -25,7 +25,7 @@ def addProduct(request):
             product.create_time = timezone.now()
             product.last_edit_time = timezone.now()
             product.save()
-            return redirect('index')
+            return redirect('getAllProducts')
         else:
             context = {'form': product}
             return render(request, 'shopping/add.html', context)
