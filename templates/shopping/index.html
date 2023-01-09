@@ -55,7 +55,7 @@ You can buy:
 {% if product %}
 	<ul>
 	{% for n in product %}
-    <li><a href="/shopping/get/{{ n.id }}/">{{ n.name }}</a></li>
+    <li><a href="/shopping/get/{{ n.id }}/">{{ n.name }} Price: {{ n.price }} Stock: {{ n.stock_number }}</a></li>
 	{% endfor %}
 	</ul>
 {% else %}
