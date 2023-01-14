@@ -39,6 +39,12 @@ def getAllProducts(request):
     context = {'product': product}
     return render(request, 'shopping/index.html', context)
 
+def getAllProductsMatchingCriteria(request):
+    name = request.GET['search_query']
+    product = Product.objects.filter(name__startswith=name)
+    context = {'product': product}
+    return render(request, 'shopping/index.html', context)
+
 
 def get(request, id):
     product = get_object_or_404(Product, id=id)
