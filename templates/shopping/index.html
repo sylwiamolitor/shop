@@ -70,8 +70,16 @@
     {% csrf_token %}
     <div class="input-group" style="width:30%;">
           <div class="form-outline">
-            <input name="search_query" type="search" id="form1" class="form-control" />
-            <label class="form-label" for="form1">Search</label>
+            <input name="product_name" type="search" id="nameSearch" class="form-control" />
+            <label class="form-label" for="nameSearch">Name</label>
+          </div>
+          <div class="form-outline">
+            <input name="product_min_price" type="search" id="minPriceSearch" class="form-control" />
+            <label class="form-label" for="minPriceSearch">Minimal price</label>
+          </div>
+          <div class="form-outline">
+            <input name="product_max_price" type="search" id="maxPriceSearch" class="form-control" />
+            <label class="form-label" for="maxPriceSearch">Maximal price</label>
           </div>
           <button type="submit" name='mybtn2' class="btn btn-primary">
             <i class="fas fa-search"></i>

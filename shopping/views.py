@@ -40,10 +40,28 @@ def getAllProducts(request):
     return render(request, 'shopping/index.html', context)
 
 def getAllProductsMatchingCriteria(request):
-    name = request.GET['search_query']
-    product = Product.objects.filter(name__startswith=name)
+    name = request.GET['product_name']
+    min_price = request.GET['product_min_price']
+    max_price = request.GET['product_max_price']
+    if min_price and isNum(min_price):
+        if max_price and isNum(max_price):
+            product = Product.objects.filter(name__startswith=name, price__lte=max_price, price__gte=min_price)
+        else:
+            product = Product.objects.filter(name__startswith=name, price__gte=min_price)
+    elif max_price and isNum(max_price):
+        product = Product.objects.filter(name__startswith=name, price__lte=max_price)
+    else:
+        product = Product.objects.filter(name__startswith=name)
     context = {'product': product}
     return render(request, 'shopping/index.html', context)
+
+def isNum(data):
+    try:
+        int(data)
+        return True
+    except ValueError:
+        return False
+
 
 
 def get(request, id):
