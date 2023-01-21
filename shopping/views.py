@@ -34,6 +34,27 @@ def addProduct(request):
         context = {'form': news}
         return render(request, 'shopping/add.html', context)
 
+@login_required(login_url='/login')
+@staff_member_required(login_url='/login')
+def editProduct(request, id):
+    product = Product.objects.get(id=id)
+
+    if request.method == 'POST':
+        form = ProductForm(request.POST, instance=product)
+        if form.is_valid():
+            form.save()
+            return redirect('editProduct', product.id)
+
+    else:
+        form = ProductForm(instance=product)
+    print("form.instance.id: " + str(form.instance.id))
+    return render(request, 'shopping/edit.html', {'form': form})
+
+def manageProducts(request):
+    product = Product.objects.order_by('-create_time')
+    context = {'product': product}
+    return render(request, 'shopping/manage.html', context)
+
 def getAllProducts(request):
     product = Product.objects.order_by('-create_time')
     context = {'product': product}

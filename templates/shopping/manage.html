@@ -87,16 +87,12 @@
     </div>
 </form>
 <br>
-<a href="/shopping/add">Add product</a>
-<br>
-<a href="/shopping/manage/">Manage products</a>
-<br>
-You can buy:
 <br>
 {% if product %}
 	<ul>
 	{% for n in product %}
-    <li><a href="/shopping/get/{{ n.id }}/">{{ n.name }} Price: {{ n.price }} Stock: {{ n.stock_number }}</a></li>
+    <li><a href="/shopping/get/{{ n.id }}/">{{ n.name }} Price: {{ n.price }} Stock: {{ n.stock_number }}</a>
+        <a href="/shopping/edit/{{ n.id }}/">Edit</a>
 	{% endfor %}
 	</ul>
 {% else %}

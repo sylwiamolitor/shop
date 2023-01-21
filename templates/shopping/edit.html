@@ -1,0 +1,8 @@
+{% extends "index.html" %}
+{% block content %}
+<form action="/shopping/edit/{{ form.instance.id }}/" method="post">
+{% csrf_token %}
+{{ form.as_p }}
+<input type="submit" value="SAVE">
+</form>
+{% endblock %}
