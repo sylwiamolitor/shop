@@ -42,12 +42,12 @@ def editProduct(request, id):
     if request.method == 'POST':
         form = ProductForm(request.POST, instance=product)
         if form.is_valid():
-            form.save()
-            return redirect('editProduct', product.id)
+            if 'save' in request.POST:
+                form.save()
+            return redirect('manageProducts')
 
     else:
         form = ProductForm(instance=product)
-    print("form.instance.id: " + str(form.instance.id))
     return render(request, 'shopping/edit.html', {'form': form})
 
 

@@ -3,6 +3,7 @@
 <form action="/shopping/edit/{{ form.instance.id }}/" method="post">
 {% csrf_token %}
 {{ form.as_p }}
-<input type="submit" value="SAVE">
+<input type="submit" name='save' value="SAVE">
+<input type="submit" name='back' value="BACK">
 </form>
 {% endblock %}
