@@ -50,6 +50,19 @@ def editProduct(request, id):
     print("form.instance.id: " + str(form.instance.id))
     return render(request, 'shopping/edit.html', {'form': form})
 
+
+@login_required(login_url='/login')
+@staff_member_required(login_url='/login')
+def deleteProduct(request, id):
+    product = Product.objects.get(id=id)
+
+    if request.method == 'POST':
+        if 'delete' in request.POST:
+            product.delete()
+        return redirect('manageProducts')
+
+    return render(request, 'shopping/delete.html', {'product': product})
+
 def manageProducts(request):
     product = Product.objects.order_by('-create_time')
     context = {'product': product}

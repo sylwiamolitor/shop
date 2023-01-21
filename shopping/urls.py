@@ -1,10 +1,11 @@
 from django.urls import path, include
-from .views import index, addProduct, getAllProducts, getAllProductsMatchingCriteria, get, buy, manageProducts, editProduct
+from .views import index, addProduct, getAllProducts, getAllProductsMatchingCriteria, get, buy, manageProducts, editProduct, deleteProduct
 
 urlpatterns = [
     path('', index, name="index"),
     path('add/', addProduct, name="addProduct"),
     path('edit/<int:id>/', editProduct, name="editProduct"),
+    path('delete/<int:id>/', deleteProduct, name="deleteProduct"),
     path('manage/', manageProducts, name="manageProducts"),
     path('get/', getAllProducts, name="getAllProducts"),
     path('get/<int:id>/', get, name='get'),
