@@ -22,7 +22,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('home.urls')),
     path('shopping/', include('shopping.urls')),
-    path('google/', TemplateView.as_view(template_name="indexGoogle.html")),
     path('accounts/', include('allauth.urls')),
-    path('logoutGoogle/', LogoutView.as_view()),
 ]
