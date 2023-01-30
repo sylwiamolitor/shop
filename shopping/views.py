@@ -63,6 +63,8 @@ def deleteProduct(request, id):
 
     return render(request, 'shopping/delete.html', {'product': product})
 
+@login_required(login_url='/login')
+@staff_member_required(login_url='/login')
 def manageProducts(request):
     product = Product.objects.order_by('-create_time')
     context = {'product': product}
