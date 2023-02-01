@@ -3,6 +3,9 @@
 {% block content %}
 
 <div class="container my-4">
+    <div class="d-flex justify-content-end">
+        <a href="/edituser" class="btn btn-primary">Edit</a>
+    </div>
     <dl class="row">
         <dt>Username:</dt><dd>{{ customer.user.username }}</dd>
         <dt>First name:</dt><dd>{{ customer.user.first_name }}</dd>
