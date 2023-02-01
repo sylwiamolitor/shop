@@ -16,33 +16,6 @@
         <script type="text/javascript"
             src="//code.jquery.com/jquery-1.9.1.js">
         </script>
-<!--            <script type="text/javascript"-->
-<!--                    src=-->
-<!--        "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js">-->
-<!--        </script>-->
-<!--            <link rel="stylesheet"-->
-<!--                type="text/css"-->
-<!--                href=-->
-<!--        "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">-->
-<!--            <link rel="stylesheet"-->
-<!--                type="text/css"-->
-<!--                href=-->
-<!--        "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">-->
-
-
-            <script type="text/javascript">
-            $(window).load(function() {
-                $(".carousel .item").each(function() {
-                    var i = $(this).next();
-                    i.length || (i = $(this).siblings(":first")),
-                    i.children(":first-child").clone().appendTo($(this));
-
-                    for (var n = 0; n < 4; n++)(i = i.next()).length ||
-                    (i = $(this).siblings(":first")),
-                    i.children(":first-child").clone().appendTo($(this))
-                })
-            });
-            </script>
 
         <!-- custom css -->
         <link rel="stylesheet" href="{% static 'style.css' %}">
@@ -88,35 +61,6 @@
     </div>
 </nav>
 {% block content %}{% endblock %}
-            <!-- slider section -->
-<!--            <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">-->
-<!--                <div class="carousel-indicators">-->
-<!--                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"-->
-<!--                        aria-current="true" aria-label="Slide 1"></button>-->
-<!--                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"-->
-<!--                        aria-label="Slide 2"></button>-->
-<!--                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"-->
-<!--                        aria-label="Slide 3"></button>-->
-<!--                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3"-->
-<!--                        aria-label="Slide 4"></button>-->
-<!--                </div>-->
-<!--                <div class="carousel-inner">-->
-<!--                    {% for object in carousel%}-->
-<!--                    <div class="carousel-item {% if forloop.counter0 == 0 %}active{% endif %}">-->
-<!--                        <img src="{{object.image.url}}" class="testi-overly d-block w-50 h-50" alt="sliderImg">-->
-<!--                    </div>-->
-<!--                    <div class="carousel-item {% if forloop.counter0 == 1 %}active{% endif %}">-->
-<!--                        <img src="{{object.image.url}}" class="testi-overly d-block w-50 h-50" alt="sliderImg">-->
-<!--                    </div>-->
-<!--                    <div class="carousel-item {% if forloop.counter0 == 2 %}active{% endif %}">-->
-<!--                        <img src="{{object.image.url}}" class="testi-overly d-block w-50 h-50" alt="sliderImg">-->
-<!--                    </div>-->
-<!--                    <div class="carousel-item {% if forloop.counter0 == 3 %}active{% endif %}">-->
-<!--                        <img src="{{object.image.url}}" class="testi-overly d-block w-50 h-50" alt="sliderImg">-->
-<!--                    </div>-->
-<!--                    {% endfor %}-->
-<!--                </div>-->
-<!--            </div>-->
 
 
     <!-- Option 1: Bootstrap Bundle with Popper -->

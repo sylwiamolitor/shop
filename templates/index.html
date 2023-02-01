@@ -7,59 +7,178 @@
 <div class="mx-auto" style="width: 400px;">
     <h1>Welcome to our shop!</h1>
 {% if not user.is_authenticated %}
-    <h3 class="login-writing">Log in to start shopping!</h3>
+    <h3 class="login-writing" style="margin-left:50px;">Log in to start shopping!</h3>
 {% endif %}
 </div>
 
-    <div class="carousel-wrapper">
-    <!-- container class for bootstrap card-->
-    <div class="container-fluid">
-        <!-- bootstrap card with row name myCarousel as row 1-->
-        <div class="carousel slide" id="myCarousel"  data-bs-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <div class="col-xs-2">
-                        <a href="#">
-                            <img src="{% static 'img/img1.png' %}">
-                    </a>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="col-xs-2">
-                        <a href="#">
-                            <img src="{% static 'img/img2.png' %}">
-                    </a>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="col-xs-2">
-                        <a href="#">
-                        <img src="{% static 'img/img3.png' %}">
-                    </a>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="col-xs-2">
-                        <a href="#">
-                        <img src="{% static 'img/img4.png' %}">
-                    </a>
-                    </div>
-                </div>
-            </div> <a class="left carousel-control"
-                    href="#myCarousel"
-                    data-slide="prev">
-        <i class="glyphicon glyphicon-chevron-left">
-        </i>
+<section class="pt-5 pb-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-6">
+        <h3 class="mb-3">Carousel cards title </h3>
+      </div>
+      <div class="col-6 text-right">
+        <a class="btn btn-primary mb-3 mr-1" href="#carouselExampleIndicators2" role="button" data-slide="prev">
+          <i class="fa fa-arrow-left"></i>
         </a>
-            <a class="right carousel-control"
-            href="#myCarousel"
-            data-slide="next">
-            <i class="glyphicon glyphicon-chevron-right">
-            </i>
+        <a class="btn btn-primary mb-3 " href="#carouselExampleIndicators2" role="button" data-slide="next">
+          <i class="fa fa-arrow-right"></i>
         </a>
+      </div>
+      <div class="col-12">
+        <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
 
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="row">
+
+                <div class="col-md-3 mb-3">
+                  <div class="card">
+                    <img class="img-fluid" alt="100%x280" src="{% static 'img/img1.png' %}">
+                    <div class="card-body">
+                      <h4 class="card-title">Special title treatment</h4>
+                      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                  <div class="card">
+                    <img class="img-fluid" alt="100%x280" src="{% static 'img/img2.png' %}">
+                    <div class="card-body">
+                      <h4 class="card-title">Special title treatment</h4>
+                      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                  <div class="card">
+                    <img class="img-fluid" alt="100%x280" src="{% static 'img/img3.png' %}">
+                    <div class="card-body">
+                      <h4 class="card-title">Special title treatment</h4>
+                      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                  <div class="card">
+                    <img class="img-fluid" alt="100%x280" src="{% static 'img/img4.png' %}">
+                    <div class="card-body">
+                      <h4 class="card-title">Special title treatment</h4>
+                      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+
+            <div class="carousel-item">
+              <div class="row">
+
+                                <div class="col-md-3 mb-3">
+                  <div class="card">
+                    <img class="img-fluid" alt="100%x280" src="{% static 'img/img5.png' %}">
+                    <div class="card-body">
+                      <h4 class="card-title">Special title treatment</h4>
+                      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                  <div class="card">
+                    <img class="img-fluid" alt="100%x280" src="{% static 'img/img6.png' %}">
+                    <div class="card-body">
+                      <h4 class="card-title">Special title treatment</h4>
+                      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                  <div class="card">
+                    <img class="img-fluid" alt="100%x280" src="{% static 'img/img7.png' %}">
+                    <div class="card-body">
+                      <h4 class="card-title">Special title treatment</h4>
+                      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                  <div class="card">
+                    <img class="img-fluid" alt="100%x280" src="{% static 'img/img8.png' %}">
+                    <div class="card-body">
+                      <h4 class="card-title">Special title treatment</h4>
+                      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+
+            <div class="carousel-item">
+              <div class="row">
+                           <div class="col-md-3 mb-3">
+                  <div class="card">
+                    <img class="img-fluid" alt="100%x280" src="{% static 'img/img9.png' %}">
+                    <div class="card-body">
+                      <h4 class="card-title">Special title treatment</h4>
+                      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                  <div class="card">
+                    <img class="img-fluid" alt="100%x280" src="{% static 'img/img10.png' %}">
+                    <div class="card-body">
+                      <h4 class="card-title">Special title treatment</h4>
+                      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                  <div class="card">
+                    <img class="img-fluid" alt="100%x280" src="{% static 'img/img11.png' %}">
+                    <div class="card-body">
+                      <h4 class="card-title">Special title treatment</h4>
+                      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                  <div class="card">
+                    <img class="img-fluid" alt="100%x280" src="{% static 'img/img12.png' %}">
+                    <div class="card-body">
+                      <h4 class="card-title">Special title treatment</h4>
+                      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
         </div>
+      </div>
     </div>
-    </div>
+  </div>
+</section>
+
+   <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+<script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
 
 {% endblock %}
