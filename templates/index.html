@@ -4,10 +4,62 @@
 
 {% load static %}
 
-<div class="container my-4">
+<div class="mx-auto" style="width: 400px;">
+    <h1>Welcome to our shop!</h1>
 {% if not user.is_authenticated %}
-    <h3>Log in to start shopping!</h3>
+    <h3 class="login-writing">Log in to start shopping!</h3>
 {% endif %}
 </div>
+
+    <div class="carousel-wrapper">
+    <!-- container class for bootstrap card-->
+    <div class="container-fluid">
+        <!-- bootstrap card with row name myCarousel as row 1-->
+        <div class="carousel slide" id="myCarousel"  data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="col-xs-2">
+                        <a href="#">
+                            <img src="{% static 'img/img1.png' %}">
+                    </a>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="col-xs-2">
+                        <a href="#">
+                            <img src="{% static 'img/img2.png' %}">
+                    </a>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="col-xs-2">
+                        <a href="#">
+                        <img src="{% static 'img/img3.png' %}">
+                    </a>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="col-xs-2">
+                        <a href="#">
+                        <img src="{% static 'img/img4.png' %}">
+                    </a>
+                    </div>
+                </div>
+            </div> <a class="left carousel-control"
+                    href="#myCarousel"
+                    data-slide="prev">
+        <i class="glyphicon glyphicon-chevron-left">
+        </i>
+        </a>
+            <a class="right carousel-control"
+            href="#myCarousel"
+            data-slide="next">
+            <i class="glyphicon glyphicon-chevron-right">
+            </i>
+        </a>
+
+        </div>
+    </div>
+    </div>
 
 {% endblock %}
