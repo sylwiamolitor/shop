@@ -1,1 +1,44 @@
+.scroll-container {
+  width: 800px;
+  height: 600px;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
 
+.commerce-area{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.commerce-actions{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    column-gap: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.product-action-button{
+    border: 2px solid white;
+    color: white;
+    background-color: #30547b;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.product-card-info-action{
+    display: flex;
+    flex-direction: row;
+    column-gap: 50px;
+}
+
+.buy-button{
+    border: 2px solid white;
+    color: white;
+    background-color: #30547b;
+    border-radius: 5px;
+    padding: 5px 15px;
+    align-self: center;
+}

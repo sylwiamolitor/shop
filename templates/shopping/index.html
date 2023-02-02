@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -18,6 +19,8 @@
       rel="stylesheet"
     />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.css" rel="stylesheet"/>
+
+    <link rel="stylesheet" href="{% static 'style.css' %}">
 
     <!-- MDB -->
     <script
@@ -66,42 +69,58 @@
     </div>
 </nav>
 <br>
-<form action="{% url 'getAllProductsMatchingCriteria' %}" method="get">
-    {% csrf_token %}
-    <div class="input-group" style="width:30%;">
-          <div class="form-outline">
-            <input name="product_name" type="search" id="nameSearch" class="form-control" />
-            <label class="form-label" for="nameSearch">Name</label>
-          </div>
-          <div class="form-outline">
-            <input name="product_min_price" type="search" id="minPriceSearch" class="form-control" />
-            <label class="form-label" for="minPriceSearch">Minimal price</label>
-          </div>
-          <div class="form-outline">
-            <input name="product_max_price" type="search" id="maxPriceSearch" class="form-control" />
-            <label class="form-label" for="maxPriceSearch">Maximal price</label>
-          </div>
-          <button type="submit" name='mybtn2' class="btn btn-primary">
-            <i class="fas fa-search"></i>
-          </button>
+<div class="d-flex justify-content-center align-items-center" style="100vh">
+    <div class="commerce-area">
+    <form action="{% url 'getAllProductsMatchingCriteria' %}" method="get">
+        {% csrf_token %}
+        <div class="input-group" style="width:100%;">
+              <div class="form-outline">
+                <input name="product_name" type="search" id="nameSearch" class="form-control" />
+                <label class="form-label" for="nameSearch">Name</label>
+              </div>
+              <div class="form-outline">
+                <input name="product_min_price" type="search" id="minPriceSearch" class="form-control" />
+                <label class="form-label" for="minPriceSearch">Minimal price</label>
+              </div>
+              <div class="form-outline">
+                <input name="product_max_price" type="search" id="maxPriceSearch" class="form-control" />
+                <label class="form-label" for="maxPriceSearch">Maximal price</label>
+              </div>
+              <button type="submit" name='mybtn2' class="btn btn-primary">
+                <i class="fas fa-search"></i>
+              </button>
+        </div>
+    </form>
+    <br>
+        <div class="commerce-actions">
+            <a class="product-action-button" href="/shopping/add">Add product</a>
+            <a class="product-action-button" href="/shopping/manage/">Manage products</a>
+        </div>
+    <br>
+    {% if product %}
+        <div class="scroll-container">
+            <ul>
+            {% for n in product %}
+              <div class="card">
+                <img class="img-fluid" alt="100%x280" src="{% static 'img/img1.png' %}">
+                <div class="card-body">
+                    <div class="product-card-info-action">
+                        <div class="card-info">
+                            <h4 class="card-title">{{ n.name }}</h4>
+                            <p class="card-text">Price: {{ n.price }} Stock: {{ n.stock_number }}</p>
+                        </div>
+                      <a class="buy-button" href="/shopping/get/{{ n.id }}/">Buy</a>
+                    </div>
+                </div>
+              </div>
+            {% endfor %}
+            </ul>
+        </div>
+    {% else %}
+        <p>No products are currently chosen.</p>
+    {% endif %}
+    <br>
     </div>
-</form>
-<br>
-<a href="/shopping/add">Add product</a>
-<br>
-<a href="/shopping/manage/">Manage products</a>
-<br>
-You can buy:
-<br>
-{% if product %}
-	<ul>
-	{% for n in product %}
-    <li><a href="/shopping/get/{{ n.id }}/">{{ n.name }} Price: {{ n.price }} Stock: {{ n.stock_number }}</a></li>
-	{% endfor %}
-	</ul>
-{% else %}
-	<p>No products are currently chosen.</p>
-{% endif %}
-<br>
+</div>
 </body>
 </html>
