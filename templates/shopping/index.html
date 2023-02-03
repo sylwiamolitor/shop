@@ -20,6 +20,9 @@
     />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.css" rel="stylesheet"/>
 
+    <script src="https://cdn.jsdelivr.net/gh/akjpro/form-anticlear/base.js"></script>
+
+
     <link rel="stylesheet" href="{% static 'style.css' %}">
 
     <!-- MDB -->
@@ -69,24 +72,38 @@
     </div>
 </nav>
 <br>
+<div class="sidenav">
+    {% if user.is_authenticated %}
+    <dl class="row" style="margin-top:40px;">
+        <dt style="color:white;">Username:</dt><dd style="color:white;">{{ user.username }}</dd>
+        <dt style="color:white;">First name:</dt><dd style="color:white;">{{ user.first_name }}</dd>
+        <dt style="color:white;">Last name:</dt><dd style="color:white;">{{ user.last_name }}</dd>
+        <dt style="color:white;">Email:</dt><dd style="color:white;">{{ user.email }}</dd>
+    </dl>
+    {% else %}
+    <dl class="row" style="margin-top:40px;">
+        <p style="color:white;">Please log in!</p>
+    </dl>
+    {% endif %}
+</div>
 <div class="d-flex justify-content-center align-items-center" style="100vh">
     <div class="commerce-area">
-    <form action="{% url 'getAllProductsMatchingCriteria' %}" method="get">
+    <form class="form-anticlear" action="{% url 'getAllProductsMatchingCriteria' %}" method="get">
         {% csrf_token %}
         <div class="input-group" style="width:100%;">
               <div class="form-outline">
-                <input name="product_name" type="search" id="nameSearch" class="form-control" />
-                <label class="form-label" for="nameSearch">Name</label>
+                <label class="form-label">Name</label>
+                <input name="product_name" type="search" id="nameSearch" class="form-control border border-primary"/>
               </div>
               <div class="form-outline">
-                <input name="product_min_price" type="search" id="minPriceSearch" class="form-control" />
-                <label class="form-label" for="minPriceSearch">Minimal price</label>
+                <label class="form-label">Minimal price</label>
+                <input name="product_min_price" type="search" id="minPriceSearch" class="form-control border border-primary"/>
               </div>
               <div class="form-outline">
-                <input name="product_max_price" type="search" id="maxPriceSearch" class="form-control" />
-                <label class="form-label" for="maxPriceSearch">Maximal price</label>
+                <label class="form-label">Maximal price</label>
+                <input name="product_max_price" type="search" id="maxPriceSearch" class="form-control border border-primary"/>
               </div>
-              <button type="submit" name='mybtn2' class="btn btn-primary">
+              <button type="submit" name='mybtn2' class="btn btn-primary rounded" style="height:40px; align-self:end;">
                 <i class="fas fa-search"></i>
               </button>
         </div>
