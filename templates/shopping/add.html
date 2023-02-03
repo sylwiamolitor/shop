@@ -1,8 +1,13 @@
 {% extends "index.html" %}
 {% block content %}
-<form action="/shopping/add/" method="post">
-{% csrf_token %}
-{{ form.as_p }}
-<input type="submit" value="ADD">
-</form>
+<div class="d-flex flex-column mt-5 justify-content-center align-items-center">
+    <form action="/shopping/add/" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+     <div>
+        <input class="buy-button" type="submit" value="ADD">
+        <a href="/shopping/get"><input class="buy-button" type="button" value="BACK"></a>
+    </div>
+    </form>
+</div>
 {% endblock %}

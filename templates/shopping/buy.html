@@ -48,40 +48,45 @@
     </div>
 </nav>
 
-Product name: {{ order.product.name }}
-<br>
+<div class="d-flex flex-column mt-5 justify-content-center align-items-center">
+        <div>
+            Product name: {{ order.product.name }}
+            <br>
 
-Description: {{ order.product.description }}
-<br>
+            Description: {{ order.product.description }}
+            <br>
 
-Quantity: {{ order.quantity }}
-<br>
+            Quantity: {{ order.quantity }}
+            <br>
 
-Price: {{ order.price }}
-<br>
+            Price: {{ order.price }}
+            <br>
 
-Status: {{ order.state.value }}
-<br>
+            Status: {{ order.state.value }}
+            <br>
 
-Create time: {{ order.create_time }}
-<br>
+            Create time: {{ order.create_time }}
+            <br>
 
-Last update time: {{ order.last_update_time }}
-<br>
+            Last update time: {{ order.last_update_time }}
+            <br>
 
-{% if order.accept_time %}
-Accepted on: {{ order.accept_time }}
-<br>
-{% endif %}
+            {% if order.accept_time %}
+            Accepted on: {{ order.accept_time }}
+            <br>
+            {% endif %}
 
-{% if order.payment_time %}
-Payment received on: {{ order.payment_time }}
-<br>
-{% endif %}
+            {% if order.payment_time %}
+            Payment received on: {{ order.payment_time }}
+            <br>
+            {% endif %}
 
-{% if order.shipping_time %}
-Shipped out on: {{ order.shipping_time }}
-<br>
-{% endif %}
+            {% if order.shipping_time %}
+            Shipped out on: {{ order.shipping_time }}
+            <br>
+            {% endif %}
 
-Transaction successful!
+            Transaction successful!
+        </div>
+        <a href="/shopping/get" class="buy-button">Back</a>
+</div>

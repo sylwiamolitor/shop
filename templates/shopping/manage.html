@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -18,6 +19,8 @@
       rel="stylesheet"
     />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.css" rel="stylesheet"/>
+
+    <link rel="stylesheet" href="{% static 'style.css' %}">
 
     <!-- MDB -->
     <script
@@ -66,39 +69,42 @@
     </div>
 </nav>
 <br>
-<form action="{% url 'getAllProductsMatchingCriteria' %}" method="get">
-    {% csrf_token %}
-    <div class="input-group" style="width:30%;">
-          <div class="form-outline">
-            <input name="product_name" type="search" id="nameSearch" class="form-control" />
-            <label class="form-label" for="nameSearch">Name</label>
-          </div>
-          <div class="form-outline">
-            <input name="product_min_price" type="search" id="minPriceSearch" class="form-control" />
-            <label class="form-label" for="minPriceSearch">Minimal price</label>
-          </div>
-          <div class="form-outline">
-            <input name="product_max_price" type="search" id="maxPriceSearch" class="form-control" />
-            <label class="form-label" for="maxPriceSearch">Maximal price</label>
-          </div>
-          <button type="submit" name='mybtn2' class="btn btn-primary">
-            <i class="fas fa-search"></i>
-          </button>
-    </div>
-</form>
-<br>
-<br>
-{% if product %}
-	<ul>
-	{% for n in product %}
-    <li><a href="/shopping/get/{{ n.id }}/">{{ n.name }} Price: {{ n.price }} Stock: {{ n.stock_number }}</a>
-        <a href="/shopping/edit/{{ n.id }}/">Edit</a>
-        <a href="/shopping/delete/{{ n.id }}/">Delete</a></li>
-	{% endfor %}
-	</ul>
-{% else %}
-	<p>No products are currently chosen.</p>
-{% endif %}
-<br>
+<div class="d-flex flex-column justify-content-center align-items-center " style="100vh">
+    <form action="{% url 'getAllProductsMatchingCriteria' %}" method="get">
+        {% csrf_token %}
+        <div class="input-group" style="width:100%;">
+              <div class="form-outline">
+                <input name="product_name" type="search" id="nameSearch" class="form-control" />
+                <label class="form-label" for="nameSearch">Name</label>
+              </div>
+              <div class="form-outline">
+                <input name="product_min_price" type="search" id="minPriceSearch" class="form-control" />
+                <label class="form-label" for="minPriceSearch">Minimal price</label>
+              </div>
+              <div class="form-outline">
+                <input name="product_max_price" type="search" id="maxPriceSearch" class="form-control" />
+                <label class="form-label" for="maxPriceSearch">Maximal price</label>
+              </div>
+              <button type="submit" name='mybtn2' class="btn btn-primary">
+                <i class="fas fa-search"></i>
+              </button>
+        </div>
+    </form>
+    <br>
+    <br>
+    {% if product %}
+        <ul>
+        {% for n in product %}
+        <li><a href="/shopping/get/{{ n.id }}/">{{ n.name }} Price: {{ n.price }} Stock: {{ n.stock_number }}</a>
+            <a href="/shopping/edit/{{ n.id }}/">Edit</a>
+            <<a href="/shopping/delete/{{ n.id }}/">Delete</a></li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No products are currently chosen.</p>
+    {% endif %}
+    <a class="buy-button" href="/shopping/get/">Back</a></li>
+    <br>
+</div>
 </body>
 </html>
