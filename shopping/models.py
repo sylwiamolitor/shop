@@ -7,6 +7,7 @@ from django.db import models
 class Product(models.Model):
     name = models.CharField(max_length=100)
     description = models.CharField(max_length=100)
+    image = models.ImageField(upload_to="pics/%y/%m/%d/", null=True)
     stock_number = models.IntegerField()
     price = models.IntegerField()
     create_time = models.DateTimeField('create time')

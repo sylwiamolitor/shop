@@ -102,7 +102,7 @@
             <ul>
             {% for n in product %}
               <div class="card">
-                <img class="img-fluid" alt="100%x280" src="{% static 'img/img1.png' %}">
+                <img class="img-fluid" alt="100%x280" src="{{ n.image.url }}">
                 <div class="card-body">
                     <div class="product-card-info-action">
                         <div class="card-info">
