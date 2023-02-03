@@ -18,7 +18,7 @@ def index(request):
 @staff_member_required(login_url='/login')
 def addProduct(request):
     if request.method == 'POST':
-        product = ProductForm(request.POST)
+        product = ProductForm(request.POST, request.FILES)
         if product.is_valid():
             product = product.save(commit=False)
             product.author = request.user
