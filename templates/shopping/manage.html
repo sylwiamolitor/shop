@@ -97,7 +97,7 @@
         {% for n in product %}
         <li><a href="/shopping/get/{{ n.id }}/">{{ n.name }} Price: {{ n.price }} Stock: {{ n.stock_number }}</a>
             <a href="/shopping/edit/{{ n.id }}/">Edit</a>
-            <<a href="/shopping/delete/{{ n.id }}/">Delete</a></li>
+            <a href="/shopping/delete/{{ n.id }}/">Delete</a></li>
         {% endfor %}
         </ul>
     {% else %}
