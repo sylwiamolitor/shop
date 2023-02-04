@@ -9,7 +9,7 @@ It uses CSS with Bootstrap 5 for its frontend as well as django-allauth and Goog
 3. Install Pillow: https://pypi.org/project/Pillow/.
 4. Clone the repository.
 5. Go to main directory and run **python manage.py runserver**.
-6. After server startup, go to admin panel and add some products:
+6. After server startup, go to admin panel and add some products:<br />
    Admin URL: http://127.0.0.1:8000/admin/ <br />
    Admin username: sklep <br />
    Admin password: zakupySklep <br />
