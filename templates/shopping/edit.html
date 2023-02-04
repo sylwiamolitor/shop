@@ -1,7 +1,7 @@
 {% extends "index.html" %}
 {% block content %}
 <div class="d-flex flex-column mt-5 justify-content-center align-items-center">
-    <form action="/shopping/edit/{{ form.instance.id }}/" method="post">
+    <form action="/shopping/edit/{{ form.instance.id }}/" method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}
     <input class="buy-button" type="submit" name='save' value="SAVE">

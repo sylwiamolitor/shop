@@ -38,9 +38,8 @@ def addProduct(request):
 @staff_member_required(login_url='/login')
 def editProduct(request, id):
     product = Product.objects.get(id=id)
-
     if request.method == 'POST':
-        form = ProductForm(request.POST, instance=product)
+        form = ProductForm(request.POST, request.FILES, instance=product)
         if form.is_valid():
             if 'save' in request.POST:
                 form.save()
