@@ -6,5 +6,12 @@ It uses CSS with Bootstrap 5 for its frontend as well as django-allauth and Goog
 # Installation
 1. Download and install Django: https://docs.djangoproject.com/en/4.1/topics/install/.
 2. Install django-allauth: https://pypi.org/project/django-allauth/.
-3. Clone the repository.
-4. Go to main directory and run **python manage.py runserver**.
+3. Install Pillow: https://pypi.org/project/Pillow/.
+4. Clone the repository.
+5. Go to main directory and run **python manage.py runserver**.
+6. After server startup, go to admin panel and add some products:
+   Admin URL: http://127.0.0.1:8000/admin/ 
+   Admin username: sklep 
+   Admin password: zakupySklep
+7. For more information, visit this project's wiki.
+8. (Additional) If you want to directly edit the database, you can use a SQLite client, for example https://sqlitebrowser.org/.
